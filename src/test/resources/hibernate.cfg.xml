@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM 
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+   	<session-factory>
+	   	<property name="hibernate.dialect">
+	      org.hibernate.dialect.DerbyDialect
+	   	</property>
+	   	<property name="hibernate.connection.driver_class">
+	      org.apache.derby.jdbc.ClientDriver
+	   	</property>
+	
+	   	<!-- derby server mode -->
+	   	<property name="hibernate.connection.url">
+	    	jdbc:derby://localhost:1527/flight
+	   	</property>
+	   	
+	   	<!--  for unit testing! Production uses transactions! -->
+	   	<property name="connection.autocommit">true</property>
+	   	
+	   	<property name="show_sql">true</property>
+	
+		<!--  still need to list mapped/annotated classes herein -->
+		<mapping class="au.com.tla.flight.model.Manufacturer" />
+		<mapping class="au.com.tla.flight.model.Aircraft" />
+		<mapping class="au.com.tla.flight.model.Person" />
+		<mapping class="au.com.tla.flight.model.Location" />
+		<mapping class="au.com.tla.flight.model.Flight" />
+	</session-factory>
+</hibernate-configuration>
